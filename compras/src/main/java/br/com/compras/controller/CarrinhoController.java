@@ -3,6 +3,7 @@ package br.com.compras.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,13 +19,6 @@ import br.com.compras.model.Produto;
 @Controller
 public class CarrinhoController {
 
-	private List<Produto> produtos = new ArrayList<>();
-
-	@RequestMapping(value = "/carrinho", method = RequestMethod.POST)
-	public ModelAndView addCarrinho(@ModelAttribute("produto") Produto produto, RedirectAttributes redirectAttributes) {
-		produtos.add(produto);
-		redirectAttributes.addFlashAttribute("msg", "Produto Adicionado no carrrinho");
-		return new ModelAndView("redirect:/listaprodutos");
-	}
+	
 
 }
