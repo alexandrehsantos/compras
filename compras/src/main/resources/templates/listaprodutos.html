@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Produtos</title>
+</head>
+
+<div th:text="${msg}"></div>
+
+<table>
+	<tr>
+		<td th:each="produto, itrStat :${produtos}">
+			<form action="#" th:action="@{/carrinho}" th:object="${produto}"
+				method="post">
+				<table>
+					<tr>
+						<th th:text="${produto.descricao}"></th>
+					</tr>
+					<tr>
+						<td>Preço</td>
+						<td th:text="${produto.valor}" />
+					</tr>
+					<tr>
+						<td th:text="${produto.fabricante}"></td>
+					</tr>
+					<tr>
+						<td><input type="hidden" id="id" name="produto"
+							th:value="${produto.id}" /> <input type="submit" value="comprar" /></td>
+					</tr>
+				</table>
+			</form>
+		</td>
+	</tr>
+</table>
+
+<div>Carrinho</div>
+<body>
+
+</body>
+</html>

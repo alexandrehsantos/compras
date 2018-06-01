@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+
 @Entity
 public class Lista {
 
@@ -17,7 +18,7 @@ public class Lista {
 	private Long id;
 	private String nome;
 	@OneToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	private List<Item> itens;
+	private List<Produto> produtos;
 
 	public Long getId() {
 		return id;
@@ -35,12 +36,12 @@ public class Lista {
 		this.nome = nome;
 	}
 
-	public List<Item> getItens() {
-		return itens;
+	public List<Produto> getProdutos() {
+		return produtos;
 	}
 
-	public void setItems(List<Item> itens) {
-		this.itens = itens;
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 	@Override
@@ -73,7 +74,7 @@ public class Lista {
 	 */
 	@Override
 	public String toString() {
-		return "Lista [nome=" + nome + ", itens=" + itens + "]";
+		return "Lista [nome=" + nome + ", itens=" + produtos + "]";
 	}
 
 }

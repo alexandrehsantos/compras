@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Item implements Serializable {
+public class Produto implements Serializable {
 
 	/**
 	 * 
@@ -20,7 +20,8 @@ public class Item implements Serializable {
 	@Column(columnDefinition = "TEXT")
 	private String descricao;
 	private Double valor;
-
+	private String fabricante;
+	
 	public Long getId() {
 		return id;
 	}
@@ -53,7 +54,7 @@ public class Item implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Item other = (Item) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -75,7 +76,15 @@ public class Item implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Item [descricao=" + descricao + ", valor=" + valor + "]";
+		return "Produto [descricao=" + descricao + ", valor=" + valor + "]";
+	}
+
+	public String getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
 	}
 
 }
