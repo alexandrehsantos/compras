@@ -11,7 +11,7 @@
 <table>
 	<tr>
 		<td th:each="produto, itrStat :${produtos}">
-			<form action="#" th:action="@{/carrinho}" th:object="${produto}"
+			<form action="#" th:action="@{/listaprodutos}" th:object="${produto}"
 				method="post">
 				<table>
 					<tr>

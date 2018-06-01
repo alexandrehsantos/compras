@@ -7,12 +7,14 @@
 <body>
 	<h1>Suas Compras</h1>
 	<div th:text="${msg}"></div>
-	<form action="#" th:action="@{/carrinho}" th:object="${produto}"
+	<p></p>
+	<p></p>
+	<form action="#" th:action="@{/carrinho}" th:object="${item}"
 		method="post">
 		<table>
 			<tr th:each="item, itrStat :${carrinhoItens}">
 				<td th:text="${item.descricao} + ' R$ ' + ${item.valor}"></td>
-				<td><input type="submit" value="Remover Produto"></td>
+				<td><input type="hidden" name="item" th:value="${item.id}"> <input type="submit" value="Remover Produto"></td>
 			</tr>
 		</table>
 	</form>
