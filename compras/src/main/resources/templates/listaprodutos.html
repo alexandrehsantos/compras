@@ -5,8 +5,9 @@
 <title>Produtos</title>
 </head>
 
+<h1>Escolha Seu Produto:</h1>
+<p></p>
 <div th:text="${msg}"></div>
-
 <table>
 	<tr>
 		<td th:each="produto, itrStat :${produtos}">
@@ -32,8 +33,10 @@
 		</td>
 	</tr>
 </table>
-
-<div th:text="'Carrinho:' + ${carrinhoItens}"></div>
+<p></p>
+<div>
+	<a th:text="'Carrinho:' + ${carrinhoQtItens}" th:href="@{/carrinho}"></a>
+</div>
 <body>
 
 </body>

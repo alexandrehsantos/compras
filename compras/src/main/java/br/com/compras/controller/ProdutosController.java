@@ -29,7 +29,7 @@ public class ProdutosController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("listaprodutos");
 		modelAndView.addObject("produtos", allProducts);
-		modelAndView.addObject("carrinhoItens", produtos.size());
+		modelAndView.addObject("carrinhoQtItens", produtos.size());
 		modelAndView.addObject("produto", new Produto());
 		return modelAndView;
 	}
@@ -38,8 +38,18 @@ public class ProdutosController {
 	public ModelAndView addCarrinho(@ModelAttribute("produto") Produto produto, RedirectAttributes redirectAttributes) {
 		produtos.add(produto);
 		redirectAttributes.addFlashAttribute("msg", "Produto Adicionado no carrrinho");
-		redirectAttributes.addFlashAttribute("carrinhoItens", produtos.size());
+		redirectAttributes.addFlashAttribute("carrinhoQtItens", produtos.size());
 		return new ModelAndView("redirect:/listaprodutos");
 
 	}
+
+	@RequestMapping(value = "/carrinho", method = RequestMethod.GET)
+	public ModelAndView addCarrinho(RedirectAttributes redirectAttributes) {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("carrinhoItens", produtos);
+		modelAndView.setViewName("carrinho");
+		return modelAndView;
+
+	}
+
 }

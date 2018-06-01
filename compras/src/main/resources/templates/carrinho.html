@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Produtos</title>
+</head>
+<body>
+	<h1>Suas Compras</h1>
+	<div th:text="${msg}"></div>
+	<form action="#" th:action="@{/carrinho}" th:object="${produto}"
+		method="post">
+		<table>
+			<tr th:each="item, itrStat :${carrinhoItens}">
+				<td th:text="${item.descricao} + ' R$ ' + ${item.valor}"></td>
+				<td><input type="submit" value="Remover Produto"></td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>
